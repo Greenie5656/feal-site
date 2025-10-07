@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+/* FEAL palette + font tokens for Tailwind v4 */
+@theme inline {
+  /* Colors (name with --color- so you can use bg-<name>, text-<name>, etc.) */
+  --color-bg: #f8f7f3;       /* Baby Powder */
+  --color-text: #1e2326;     /* Eerie Black */
+  --color-primary: #2d94cf;  /* Celestial Blue */
+  --color-accent: #e29e1a;   /* Harvest Gold */
+  --color-muted: #868e8f;    /* Battleship Gray */
+
+  /* Font tokens populated by next/font in layout.js */
+  --font-heading: var(--font-montserrat);
+  --font-body: var(--font-open-sans);
+}
+
+/* Base */
+html, body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+body {
+  font-family: var(--font-body), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading), system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Helper */
+.container-default { max-width: 80rem; margin-inline: auto; padding-inline: 1rem; }
+@media (min-width: 640px){ .container-default{ padding-inline: 1.5rem; } }
+@media (min-width: 1024px){ .container-default{ padding-inline: 2rem; } }
