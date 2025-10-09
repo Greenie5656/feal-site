@@ -1,6 +1,6 @@
 "use client";
 import { motion } from 'framer-motion';
-import Hero from '@/components/Hero';
+import { Phone, Mail } from 'lucide-react';
 import FeatureBox from '@/components/FeatureBox';
 import Container from '@/components/Container';
 import { features, partners } from '@/lib/data';
@@ -9,14 +9,59 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <Hero
-        title="Specialist Supply & Fit Auto-Electrical Solutions"
-        subtitle="For Fleets and Commercial Vehicles"
-        image="/images/hero-van.jpg"
-        ctaText="Get a Quote"
-        ctaLink="/contact"
-        height="h-[600px]"
-      />
+      <section
+        className="relative h-[700px] bg-cover bg-center"
+        style={{ backgroundImage: `url(/images/hero-van.jpg)` }}
+      >
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40" />
+        
+        {/* Content */}
+        <div className="relative h-full flex flex-col justify-center items-center text-white text-center px-4">
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold mb-4 max-w-5xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            FEAL Electrical Automotive Ltd
+          </motion.h1>
+          
+          <motion.p 
+            className="text-2xl md:text-3xl mb-4 max-w-4xl text-gray-100 font-semibold"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            Specialist Supply, Fit & Servicing Solutions for Fleets, Commercial, Specialist Vehicles, and Motorhomes
+          </motion.p>
+
+          <motion.p 
+            className="text-lg md:text-xl mb-6 max-w-3xl text-gray-200 leading-relaxed"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            Professional, reliable and built on family values.<br />
+            From full fleet systems to one-off installs, FEAL provides trusted electrical solutions that keep vehicles powered, visible and protected — in our workshop or at your site.
+          </motion.p>
+          
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 items-center justify-center text-base md:text-lg mb-2"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <a href="tel:07702071515" className="flex items-center gap-2 hover:text-accent transition font-semibold">
+              <Phone className="w-5 h-5" /> 07702 071515
+            </a>
+            <span className="hidden sm:inline text-gray-400">|</span>
+            <a href="mailto:fealelectricalautomotiveltd@gmail.com" className="flex items-center gap-2 hover:text-accent transition font-semibold">
+              <Mail className="w-5 h-5" /> fealelectricalautomotiveltd@gmail.com
+            </a>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Features Section */}
       <section className="py-20 bg-bg relative overflow-hidden">
@@ -70,7 +115,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Professional auto-electrical services with a proven track record across the UK
+              Auto electrician Haslingden serving fleets, commercial vehicles and motorhome owners across the UK
             </motion.p>
           </motion.div>
           
@@ -92,14 +137,24 @@ export default function HomePage() {
       <section className="py-16 bg-white">
         <Container>
           <motion.h2 
-            className="text-3xl font-bold text-center mb-12 text-text"
+            className="text-3xl font-bold text-center mb-4 text-text"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Trusted By
+            Trusted By Leading Fleets
           </motion.h2>
+
+          <motion.p
+            className="text-center text-muted text-lg mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Trusted by national fleet operators including Wellocks, Sainsbury's, Brakes and Solomon Commercials.
+          </motion.p>
           
           <div className="flex flex-wrap justify-center items-center gap-12">
             {partners.map((partner, index) => (
@@ -134,6 +189,39 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.5 }}
           />
+        </Container>
+      </section>
+
+      {/* Supporting All Vehicle Owners Section */}
+      <section className="py-16 bg-bg">
+        <Container>
+          <motion.div
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.h2 
+              className="text-3xl font-bold mb-6 text-text"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              Supporting All Vehicle Owners
+            </motion.h2>
+            
+            <motion.p 
+              className="text-lg text-muted leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              While our main focus is on fleets and specialist vehicles, we also support tradespeople, individual van owners and motorhome users. From cameras and lighting to solar or tracking systems, FEAL brings the same high standards to every job. Whether you need <strong>motorhome electrical upgrades</strong> or commercial vehicle installations, our expert team delivers quality workmanship every time.
+            </motion.p>
+          </motion.div>
         </Container>
       </section>
 

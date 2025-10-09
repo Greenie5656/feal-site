@@ -1,18 +1,18 @@
 export const features = [
   {
     icon: '⚡',
-    title: 'Supply & Fit Specialists',
-    description: 'Complete end-to-end installation service for all auto-electrical needs. We source, supply, and professionally fit all equipment.'
+    title: 'Fleet & Specialist Vehicle Experts',
+    description: 'Electrical systems designed for reliability and performance. From telematics to lighting, we deliver fleet electrical installations that meet the demands of commercial operations.'
   },
   {
-    icon: '🔍',
-    title: 'Proven Process',
-    description: 'ISO-style traceability with dual sign-off, job numbers, and photographic evidence. Quality and documentation you can trust.'
+    icon: '📡',
+    title: 'Vehicle Tracking & Telematics',
+    description: 'Protect, monitor and manage your vehicles with precision. Professional vehicle tracking UK-wide installations with full documentation and support.'
   },
   {
-    icon: '🧭',
-    title: 'Family-Run Precision',
-    description: 'Based in Haslingden, Lancashire. Personal service combined with professional standards for fleet managers and bodybuilders.'
+    icon: '🔧',
+    title: 'Mobile Fitters & Servicing',
+    description: 'On-site installs and maintenance across the UK. Our mobile auto electrician Lancashire team brings workshop-quality service to your location.'
   }
 ];
 
@@ -26,32 +26,52 @@ export const partners = [
 export const services = [
   {
     icon: '📡',
-    title: 'Telematics & Tracking',
-    description: 'Fleet monitoring systems for complete vehicle oversight and management.'
-  },
-  {
-    icon: '📹',
-    title: '360° Cameras & DVR',
-    description: 'Complete visibility solutions with high-quality camera systems and recording.'
-  },
-  {
-    icon: '💡',
-    title: 'Vehicle Lighting',
-    description: 'Labcraft, PIR, and LED lighting installations for all commercial vehicles.'
-  },
-  {
-    icon: '☀️',
-    title: 'Solar & Power Systems',
-    description: 'Sustainable power solutions including solar panels and battery systems.'
-  },
-  {
-    icon: '🔌',
-    title: 'Anderson Sockets',
-    description: 'Professional power kit installations and connector systems.'
+    title: 'Fleet & Commercial Electrical Systems',
+    description: 'Complete electrical installations for commercial vehicles and fleet operations with full documentation.'
   },
   {
     icon: '🔧',
-    title: 'Diagnostics & Repairs',
-    description: 'Expert troubleshooting, repairs, and electrical system upgrades.'
+    title: 'Specialist Vehicle Wiring & Conversions',
+    description: 'Custom electrical builds and retrofits for specialist vehicles and unique requirements.'
+  },
+  {
+    icon: '📹',
+    title: '360° Camera & DVR Installations',
+    description: 'Complete visibility solutions with high-quality camera systems and recording equipment.'
+  },
+  {
+    icon: '💡',
+    title: 'Reverse & Side Marker Lighting',
+    description: 'Professional lighting installations for safety, compliance and visibility.'
+  },
+  {
+    icon: '✨',
+    title: 'Interior & Load-Area LED Lighting',
+    description: 'Energy-efficient LED lighting solutions for work areas and cargo spaces.'
+  },
+  {
+    icon: '☀️',
+    title: 'Solar Panel & Auxiliary Power Systems',
+    description: 'Sustainable power solutions including solar panels and auxiliary battery systems.'
+  },
+  {
+    icon: '🔋',
+    title: 'Dual-Battery & Split-Charge Setups',
+    description: 'Professional dual-battery installations and split-charge system configurations.'
+  },
+  {
+    icon: '🔍',
+    title: 'Diagnostics, Fault-Finding & Repairs',
+    description: 'Expert troubleshooting and repair services for all vehicle electrical issues.'
+  },
+  {
+    icon: '⚙️',
+    title: 'Electrical Servicing & Preventative Maintenance',
+    description: 'Regular servicing and maintenance to keep your electrical systems running reliably.'
+  },
+  {
+    icon: '🛠️',
+    title: 'Custom Electrical Builds & Retrofits',
+    description: 'Bespoke electrical solutions designed and built to your exact specifications.'
   }
 ];
