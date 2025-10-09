@@ -2,58 +2,48 @@
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import Container from '@/components/Container';
-import { CheckCircle2, FileText, Search, Wrench, Users, Camera, Truck, Settings } from 'lucide-react';
+import { Sun, Battery, Zap, Lightbulb, Shield, Wrench } from 'lucide-react';
 
-const processSteps = [
+const installations = [
   {
-    icon: FileText,
-    title: 'Job Allocation & Identification',
-    description: 'Each job gets a unique number linked to the vehicle\'s VIN, registration and PO.'
+    icon: Sun,
+    title: 'Solar Panel & Charging Systems',
+    description: 'Off-grid power solutions with solar panels, charge controllers and battery management.'
   },
   {
-    icon: CheckCircle2,
-    title: 'Component Preparation',
-    description: 'All parts verified and prepared before fitting.'
+    icon: Battery,
+    title: 'Dual Battery & Split-Charge Setups',
+    description: 'Professional dual-battery installations to power your leisure systems independently.'
   },
   {
-    icon: Search,
-    title: 'Pre-Install Inspection',
-    description: 'Existing wiring and systems checked and recorded.'
+    icon: Zap,
+    title: 'Inverters & 12V/240V Power Management',
+    description: 'Complete power systems for running appliances and devices on the road.'
+  },
+  {
+    icon: Lightbulb,
+    title: 'Interior & External Lighting',
+    description: 'Energy-efficient LED lighting for living areas, load spaces and exterior.'
+  },
+  {
+    icon: Shield,
+    title: 'Vehicle Tracking & Security Systems',
+    description: 'Protect your investment with GPS tracking and alarm installations.'
   },
   {
     icon: Wrench,
-    title: 'Professional Installation',
-    description: 'Completed to specification by qualified auto-electricians.'
-  },
-  {
-    icon: Users,
-    title: 'Dual Sign-Off & Quality Control',
-    description: 'Lead Installer and QC Engineer approve every vehicle.'
-  },
-  {
-    icon: Camera,
-    title: 'Photographic Record',
-    description: 'Each stage documented for audit and warranty.'
-  },
-  {
-    icon: Truck,
-    title: 'Handover / Delivery',
-    description: 'All systems tested and verified before release.'
-  },
-  {
-    icon: Settings,
-    title: 'Servicing & Support',
-    description: 'Ongoing maintenance, diagnostics and upgrades available for all clients.'
+    title: 'Electrical Servicing & Upgrades',
+    description: 'Maintenance, diagnostics and system upgrades for existing installations.'
   }
 ];
 
-export default function ProcessPage() {
+export default function MotorhomesPage() {
   return (
     <>
       {/* Hero Section */}
       <Hero
-        title="Our Process"
-        subtitle="Supply. Fit. Service. Verify. Every time."
+        title="Motorhomes & Campervans"
+        subtitle="Power, lighting and comfort — professionally installed"
         image="/images/hero-van.jpg"
         height="h-[400px]"
       />
@@ -69,16 +59,19 @@ export default function ProcessPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-text">
-              Structured, Traceable, Professional
+              Professional Electrical Systems for Your Motorhome
             </h2>
+            <p className="text-lg text-muted leading-relaxed mb-6">
+              Alongside our fleet and specialist vehicle work, we also supply, fit and service electrical systems for motorhomes and campervans.
+            </p>
             <p className="text-lg text-muted leading-relaxed">
-              Every job follows the same structured process for consistency, safety and traceability — whether completed at our workshop or by our <strong>mobile auto electrician Lancashire</strong> team. As a trusted <strong>auto electrician Haslingden</strong>, we deliver <strong>fleet electrical installations</strong> with full documentation and quality assurance.
+              Whether you're upgrading your solar setup, adding a reversing camera or fitting a full off-grid system, FEAL applies the same professional standards as our <strong>fleet electrical installations</strong>. As a trusted <strong>auto electrician Haslingden</strong>, we deliver expert <strong>motorhome electrical upgrades</strong> with complete documentation and quality assurance.
             </p>
           </motion.div>
         </Container>
       </section>
 
-      {/* Process Steps Section */}
+      {/* Installations & Services Section */}
       <section className="py-20 bg-bg relative overflow-hidden">
         {/* Subtle background decoration */}
         <motion.div
@@ -114,12 +107,12 @@ export default function ProcessPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Our 8-Step Process
+            Typical Installations & Services
           </motion.h3>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-            {processSteps.map((step, index) => {
-              const IconComponent = step.icon;
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+            {installations.map((installation, index) => {
+              const IconComponent = installation.icon;
               return (
                 <motion.div
                   key={index}
@@ -137,11 +130,6 @@ export default function ProcessPage() {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  {/* Step number badge */}
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-bold text-sm">
-                    {index + 1}
-                  </div>
-
                   {/* Animated background accent */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -167,11 +155,11 @@ export default function ProcessPage() {
                     </motion.div>
                     
                     <h4 className="font-bold text-lg mb-3 text-text">
-                      {step.title}
+                      {installation.title}
                     </h4>
                     
                     <p className="text-muted text-sm leading-relaxed">
-                      {step.description}
+                      {installation.description}
                     </p>
                   </div>
 
@@ -189,7 +177,7 @@ export default function ProcessPage() {
         </Container>
       </section>
 
-      {/* Quality Assurance Section */}
+      {/* Professional Standards Section */}
       <section className="py-16 bg-white border-t-2 border-accent">
         <Container>
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -200,28 +188,31 @@ export default function ProcessPage() {
               transition={{ duration: 0.6 }}
             >
               <h3 className="text-3xl font-bold mb-6 text-text">
-                ISO-Style Traceability
+                Fleet-Grade Standards for Every Motorhome
               </h3>
+              <p className="text-lg text-muted leading-relaxed mb-6">
+                All installations are documented, tested and dual signed-off — the same process we use for commercial fleet work.
+              </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <div className="text-2xl text-primary">✓</div>
                   <div>
-                    <h4 className="font-semibold text-lg text-text">Job Numbers & Documentation</h4>
-                    <p className="text-muted">Every installation tracked from start to finish with complete records</p>
+                    <h4 className="font-semibold text-lg text-text">Professional Installation</h4>
+                    <p className="text-muted">Qualified auto-electricians with commercial vehicle experience</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-2xl text-primary">✓</div>
                   <div>
-                    <h4 className="font-semibold text-lg text-text">Dual Sign-Off System</h4>
-                    <p className="text-muted">Lead Installer and QC Engineer approval on every vehicle</p>
+                    <h4 className="font-semibold text-lg text-text">Full Documentation</h4>
+                    <p className="text-muted">Complete records, diagrams and certifications provided</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-2xl text-primary">✓</div>
                   <div>
-                    <h4 className="font-semibold text-lg text-text">Photographic Evidence</h4>
-                    <p className="text-muted">Visual documentation for warranty, audit and compliance</p>
+                    <h4 className="font-semibold text-lg text-text">Quality Components</h4>
+                    <p className="text-muted">Premium products built to last in demanding conditions</p>
                   </div>
                 </div>
               </div>
@@ -234,21 +225,73 @@ export default function ProcessPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h4 className="text-2xl font-bold mb-4">Workshop or Mobile Service</h4>
+              <h4 className="text-2xl font-bold mb-4">Workshop & Mobile Service</h4>
               <p className="mb-4 opacity-90">
-                Our structured process applies whether we're working in our Haslingden workshop or at your site:
+                Our <strong>mobile auto electrician Lancashire</strong> team brings professional service to your location:
               </p>
-              <ul className="space-y-2 opacity-90">
-                <li>• Workshop installations for complex builds</li>
-                <li>• Mobile service for fleet convenience</li>
-                <li>• Same quality standards everywhere</li>
-                <li>• Full documentation provided</li>
+              <ul className="space-y-2 opacity-90 mb-6">
+                <li>• Workshop installations in Haslingden</li>
+                <li>• Mobile service across the UK</li>
+                <li>• Home driveway installs available</li>
+                <li>• Storage site and dealership visits</li>
               </ul>
-              <p className="mt-6 text-sm opacity-75">
-                From <strong>vehicle tracking UK</strong> installations to complete <strong>motorhome electrical upgrades</strong>, every job receives the same professional attention to detail.
+              <p className="text-sm opacity-75">
+                We also install <strong>vehicle tracking UK</strong> systems to protect your motorhome investment, alongside full electrical upgrades and servicing.
               </p>
             </motion.div>
           </div>
+        </Container>
+      </section>
+
+      {/* Why Choose FEAL Section */}
+      <section className="py-16 bg-bg">
+        <Container>
+          <motion.div
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="text-3xl font-bold mb-6 text-text">
+              Why Motorhome Owners Choose FEAL
+            </h3>
+            <p className="text-lg text-muted leading-relaxed mb-8">
+              Unlike typical auto-electricians, we bring commercial fleet experience to every motorhome project. That means better planning, higher quality work, and the confidence that your electrical system is safe, reliable and built to last.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6 text-left">
+              <motion.div
+                className="bg-white p-6 rounded-lg shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <h4 className="font-bold text-lg mb-2 text-primary">Commercial Experience</h4>
+                <p className="text-muted text-sm">Systems built to fleet standards for long-term reliability</p>
+              </motion.div>
+              <motion.div
+                className="bg-white p-6 rounded-lg shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <h4 className="font-bold text-lg mb-2 text-primary">Proper Documentation</h4>
+                <p className="text-muted text-sm">Full installation records for warranty and resale value</p>
+              </motion.div>
+              <motion.div
+                className="bg-white p-6 rounded-lg shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <h4 className="font-bold text-lg mb-2 text-primary">Professional Service</h4>
+                <p className="text-muted text-sm">Clear quotes, timely work, and ongoing support</p>
+              </motion.div>
+            </div>
+          </motion.div>
         </Container>
       </section>
 
@@ -295,7 +338,7 @@ export default function ProcessPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Experience Our Professional Process
+              Ready to Upgrade Your Motorhome?
             </motion.h2>
             
             <motion.p 
@@ -305,7 +348,7 @@ export default function ProcessPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Quality, traceability and professional standards on every installation
+              Get in touch to discuss your electrical requirements and get a professional quote
             </motion.p>
             
             <motion.a 
@@ -321,7 +364,7 @@ export default function ProcessPage() {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              Get Started Today
+              Request a Quote
             </motion.a>
           </motion.div>
         </Container>

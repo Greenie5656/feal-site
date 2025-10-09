@@ -2,58 +2,48 @@
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import Container from '@/components/Container';
-import { CheckCircle2, FileText, Search, Wrench, Users, Camera, Truck, Settings } from 'lucide-react';
+import { MapPin, Shield, BarChart3, Gauge, CheckCircle, Settings } from 'lucide-react';
 
-const processSteps = [
+const benefits = [
   {
-    icon: FileText,
-    title: 'Job Allocation & Identification',
-    description: 'Each job gets a unique number linked to the vehicle\'s VIN, registration and PO.'
+    icon: MapPin,
+    title: 'Real-time Vehicle Tracking',
+    description: 'Live location data for complete visibility of your fleet or vehicle.'
   },
   {
-    icon: CheckCircle2,
-    title: 'Component Preparation',
-    description: 'All parts verified and prepared before fitting.'
+    icon: Shield,
+    title: 'Anti-theft Protection & Recovery Support',
+    description: 'Insurance-approved systems with rapid recovery assistance.'
   },
   {
-    icon: Search,
-    title: 'Pre-Install Inspection',
-    description: 'Existing wiring and systems checked and recorded.'
+    icon: BarChart3,
+    title: 'Driver Behaviour & Mileage Reports',
+    description: 'Detailed insights to improve efficiency and reduce costs.'
   },
   {
-    icon: Wrench,
-    title: 'Professional Installation',
-    description: 'Completed to specification by qualified auto-electricians.'
+    icon: Gauge,
+    title: 'Fleet & Specialist Vehicle Management',
+    description: 'Comprehensive monitoring for commercial and specialist operations.'
   },
   {
-    icon: Users,
-    title: 'Dual Sign-Off & Quality Control',
-    description: 'Lead Installer and QC Engineer approve every vehicle.'
-  },
-  {
-    icon: Camera,
-    title: 'Photographic Record',
-    description: 'Each stage documented for audit and warranty.'
-  },
-  {
-    icon: Truck,
-    title: 'Handover / Delivery',
-    description: 'All systems tested and verified before release.'
+    icon: CheckCircle,
+    title: 'Insurance-Approved Systems',
+    description: 'Certified tracking solutions that may reduce your premiums.'
   },
   {
     icon: Settings,
-    title: 'Servicing & Support',
-    description: 'Ongoing maintenance, diagnostics and upgrades available for all clients.'
+    title: 'Fully Installed & Configured',
+    description: 'Professional installation and setup by our qualified engineers.'
   }
 ];
 
-export default function ProcessPage() {
+export default function TrackingPage() {
   return (
     <>
       {/* Hero Section */}
       <Hero
-        title="Our Process"
-        subtitle="Supply. Fit. Service. Verify. Every time."
+        title="Vehicle Tracking & Telematics"
+        subtitle="Stay connected. Stay protected."
         image="/images/hero-van.jpg"
         height="h-[400px]"
       />
@@ -69,16 +59,19 @@ export default function ProcessPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-text">
-              Structured, Traceable, Professional
+              Professional Vehicle Tracking Solutions
             </h2>
+            <p className="text-lg text-muted leading-relaxed mb-6">
+              FEAL supply, fit and service tracking and telematics systems for all vehicle types — from single vans and company cars to full national fleets, specialist builds and motorhomes.
+            </p>
             <p className="text-lg text-muted leading-relaxed">
-              Every job follows the same structured process for consistency, safety and traceability — whether completed at our workshop or by our <strong>mobile auto electrician Lancashire</strong> team. As a trusted <strong>auto electrician Haslingden</strong>, we deliver <strong>fleet electrical installations</strong> with full documentation and quality assurance.
+              Our <strong>vehicle tracking UK</strong> installations improve security, efficiency and visibility with live location data, route monitoring and driver insights. As a trusted <strong>auto electrician Haslingden</strong>, we deliver professional <strong>fleet electrical installations</strong> with complete documentation and support.
             </p>
           </motion.div>
         </Container>
       </section>
 
-      {/* Process Steps Section */}
+      {/* Benefits Section */}
       <section className="py-20 bg-bg relative overflow-hidden">
         {/* Subtle background decoration */}
         <motion.div
@@ -114,12 +107,12 @@ export default function ProcessPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Our 8-Step Process
+            Benefits of Vehicle Tracking
           </motion.h3>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-            {processSteps.map((step, index) => {
-              const IconComponent = step.icon;
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+            {benefits.map((benefit, index) => {
+              const IconComponent = benefit.icon;
               return (
                 <motion.div
                   key={index}
@@ -137,11 +130,6 @@ export default function ProcessPage() {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  {/* Step number badge */}
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-bold text-sm">
-                    {index + 1}
-                  </div>
-
                   {/* Animated background accent */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -167,11 +155,11 @@ export default function ProcessPage() {
                     </motion.div>
                     
                     <h4 className="font-bold text-lg mb-3 text-text">
-                      {step.title}
+                      {benefit.title}
                     </h4>
                     
                     <p className="text-muted text-sm leading-relaxed">
-                      {step.description}
+                      {benefit.description}
                     </p>
                   </div>
 
@@ -189,7 +177,7 @@ export default function ProcessPage() {
         </Container>
       </section>
 
-      {/* Quality Assurance Section */}
+      {/* Who We Serve Section */}
       <section className="py-16 bg-white border-t-2 border-accent">
         <Container>
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -200,28 +188,31 @@ export default function ProcessPage() {
               transition={{ duration: 0.6 }}
             >
               <h3 className="text-3xl font-bold mb-6 text-text">
-                ISO-Style Traceability
+                For Every Vehicle Type
               </h3>
+              <p className="text-lg text-muted leading-relaxed mb-6">
+                Whether it's one van, a 100-vehicle fleet or a custom-built vehicle, FEAL provides the right tracking solution.
+              </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <div className="text-2xl text-primary">✓</div>
                   <div>
-                    <h4 className="font-semibold text-lg text-text">Job Numbers & Documentation</h4>
-                    <p className="text-muted">Every installation tracked from start to finish with complete records</p>
+                    <h4 className="font-semibold text-lg text-text">Single Vehicles & Company Cars</h4>
+                    <p className="text-muted">Individual tracking for vans, cars and specialist vehicles</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-2xl text-primary">✓</div>
                   <div>
-                    <h4 className="font-semibold text-lg text-text">Dual Sign-Off System</h4>
-                    <p className="text-muted">Lead Installer and QC Engineer approval on every vehicle</p>
+                    <h4 className="font-semibold text-lg text-text">Full National Fleets</h4>
+                    <p className="text-muted">Scalable solutions for commercial operations of any size</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="text-2xl text-primary">✓</div>
                   <div>
-                    <h4 className="font-semibold text-lg text-text">Photographic Evidence</h4>
-                    <p className="text-muted">Visual documentation for warranty, audit and compliance</p>
+                    <h4 className="font-semibold text-lg text-text">Motorhomes & Leisure Vehicles</h4>
+                    <p className="text-muted">Security and peace of mind for your investment</p>
                   </div>
                 </div>
               </div>
@@ -234,18 +225,18 @@ export default function ProcessPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h4 className="text-2xl font-bold mb-4">Workshop or Mobile Service</h4>
+              <h4 className="text-2xl font-bold mb-4">Mobile Installation Available</h4>
               <p className="mb-4 opacity-90">
-                Our structured process applies whether we're working in our Haslingden workshop or at your site:
+                Our <strong>mobile auto electrician Lancashire</strong> team can install tracking systems at your location:
               </p>
-              <ul className="space-y-2 opacity-90">
-                <li>• Workshop installations for complex builds</li>
-                <li>• Mobile service for fleet convenience</li>
-                <li>• Same quality standards everywhere</li>
-                <li>• Full documentation provided</li>
+              <ul className="space-y-2 opacity-90 mb-6">
+                <li>• Workshop installations in Haslingden</li>
+                <li>• Mobile service across Lancashire & UK</li>
+                <li>• Fleet installs at your depot</li>
+                <li>• Minimal vehicle downtime</li>
               </ul>
-              <p className="mt-6 text-sm opacity-75">
-                From <strong>vehicle tracking UK</strong> installations to complete <strong>motorhome electrical upgrades</strong>, every job receives the same professional attention to detail.
+              <p className="text-sm opacity-75">
+                All installations include full setup, testing, and documentation. We also provide <strong>motorhome electrical upgrades</strong> alongside tracking installations.
               </p>
             </motion.div>
           </div>
@@ -295,7 +286,7 @@ export default function ProcessPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Experience Our Professional Process
+              Ready to Track Your Vehicles?
             </motion.h2>
             
             <motion.p 
@@ -305,7 +296,7 @@ export default function ProcessPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Quality, traceability and professional standards on every installation
+              Get in touch to discuss tracking and telematics solutions for your vehicle or fleet
             </motion.p>
             
             <motion.a 
@@ -321,7 +312,7 @@ export default function ProcessPage() {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              Get Started Today
+              Request a Quote
             </motion.a>
           </motion.div>
         </Container>
