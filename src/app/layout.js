@@ -7,14 +7,18 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["500","600","700"],
   variable: "--font-montserrat",
-  display: "swap",
+  display: "optional",  // ← Changed from "swap"
+  fallback: ["system-ui", "arial"],  // ← Added
+  adjustFontFallback: true,  // ← Added
 });
 
 const openSans = Open_Sans({
   subsets: ["latin"],
   weight: ["400","500"],
   variable: "--font-open-sans",
-  display: "swap",
+  display: "optional",  // ← Changed from "swap"
+  fallback: ["system-ui", "arial"],  // ← Added
+  adjustFontFallback: true,  // ← Added
 });
 
 export const metadata = {
