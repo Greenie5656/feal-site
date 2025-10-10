@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import Container from '@/components/Container';
+import Image from 'next/image';
 import { MapPin, Shield, BarChart3, Gauge, CheckCircle, Settings } from 'lucide-react';
 
 const benefits = [
@@ -70,6 +71,43 @@ export default function TrackingPage() {
           </motion.div>
         </Container>
       </section>
+
+      {/* Partnership Section - */}
+<section className="py-12 bg-white border-y-2 border-accent">
+  <Container>
+    <motion.div
+      className="max-w-4xl mx-auto text-center"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <h3 className="text-2xl font-bold mb-4 text-text">
+        Powered by Scorpion Track
+      </h3>
+      <p className="text-lg text-muted mb-6 leading-relaxed">
+        FEAL works in partnership with <strong>Scorpion Track</strong>, a leading UK vehicle tracking provider. All our tracking installations use Scorpion's insurance-approved systems for maximum protection and reliability.
+      </p>
+      
+      {/* Scorpion Logo */}
+      <motion.div
+        className="flex justify-center"
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <Image
+          src="/Scorpion.png"
+          alt="Scorpion Track - Vehicle Tracking Systems"
+          width={300}
+          height={100}
+          className="object-contain"
+        />
+      </motion.div>
+    </motion.div>
+  </Container>
+</section>
 
       {/* Benefits Section */}
       <section className="py-20 bg-bg relative overflow-hidden">
