@@ -35,7 +35,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <Hero
         title="About FEAL"
-        subtitle="Family-run. Professional. Reliable."
+        subtitle="Electrical Solutions You Can Trust"
         image="/images/hero-van.jpg"
         height="h-[400px]"
       />
