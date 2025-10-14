@@ -4,6 +4,8 @@ import Hero from '@/components/Hero';
 import Container from '@/components/Container';
 import { Compass, Users, Award, MapPin } from 'lucide-react';
 
+
+
 const values = [
   {
     letter: 'F',
@@ -46,16 +48,16 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-text text-center">
               Specialist Auto-Electrical Solutions
             </h2>
             <p className="text-lg text-muted leading-relaxed mb-6">
-              FEAL Electrical Automotive Ltd is a family-run business based in Haslingden, Lancashire, built on hands-on experience and straight-talking service.
+              FEAL Electrical Automotive Ltd provides professional electrical, tracking, and off-grid installation services across the UK. Based in Haslingden, Lancashire, we work with fleet operators, specialist vehicle builders, and leisure vehicle owners who demand quality, compliance, and reliability.
             </p>
             <p className="text-lg text-muted leading-relaxed">
-              We specialise in electrical installations and servicing for fleet operators, specialist vehicle builders, tradespeople and motorhome owners who demand quality, documentation and reliability. As a trusted <strong>auto electrician Haslingden</strong>, we deliver professional <strong>fleet electrical installations</strong> and <strong>motorhome electrical upgrades</strong> across the UK.
+              Our team combines technical expertise with precise workmanship to deliver installations built for performance and long-term dependability.
             </p>
           </motion.div>
         </Container>
@@ -95,7 +97,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
               <div className="flex items-center gap-3 mb-6">
                 <Users className="w-10 h-10 text-primary" />
@@ -104,13 +106,13 @@ export default function AboutPage() {
                 </h3>
               </div>
               <p className="text-lg text-muted leading-relaxed mb-4">
-                FEAL was founded by the team behind <strong>Tru North Refrigeration</strong>, one of the North West's leading refrigeration specialists for commercial fleet vehicles.
+                FEAL was founded by the team behind <strong>TruNorth Refrigeration</strong>, one of the North West's leading refrigeration specialists for commercial fleet vehicles.
               </p>
               <p className="text-lg text-muted leading-relaxed mb-4">
                 After years of working alongside major bodybuilders and operators, we saw the need for a dedicated auto-electrical division focused on precision, traceability and fast turnaround.
               </p>
               <p className="text-lg text-muted leading-relaxed">
-                FEAL carries forward the same reliability and workmanship that made Tru North a trusted name in the refrigeration industry.
+                FEAL carries forward the same reliability and workmanship that made TruNorth a trusted name in the refrigeration industry.
               </p>
             </motion.div>
 
@@ -119,7 +121,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
               <Award className="w-12 h-12 mb-4" />
               <h4 className="text-2xl font-bold mb-4">Built on Experience</h4>
@@ -154,7 +156,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
             <div className="flex items-center justify-center gap-3 mb-6">
               <Compass className="w-10 h-10 text-primary" />
@@ -179,12 +181,12 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ 
-                  duration: 0.5, 
-                  delay: index * 0.1
+                  duration: 0.4, 
+                  delay: index * 0.08
                 }}
                 whileHover={{ 
                   y: -5,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.2 }
                 }}
               >
                 {/* Gradient background on hover */}
@@ -199,8 +201,8 @@ export default function AboutPage() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ 
-                      duration: 0.4, 
-                      delay: index * 0.1 + 0.2
+                      duration: 0.3, 
+                      delay: index * 0.08 + 0.2
                     }}
                   >
                     {value.letter}
@@ -221,7 +223,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             <p className="text-lg text-muted leading-relaxed">
               The compass in our logo symbolises direction and dependability — qualities that guide every installation and service we deliver.
@@ -239,7 +241,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
               <MapPin className="w-12 h-12 text-primary mb-4" />
               <h3 className="text-2xl font-bold mb-4 text-text">Our Workshop</h3>
@@ -270,7 +272,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
               <h3 className="text-3xl font-bold mb-6 text-text">
                 Quality as Procedure
@@ -287,9 +289,6 @@ export default function AboutPage() {
                   <li>• Complete records for audit and warranty</li>
                 </ul>
               </div>
-              <p className="text-muted mt-6 italic">
-                Our <strong>mobile auto electrician Lancashire</strong> team brings the same professional standards to your location, with <strong>vehicle tracking UK</strong> installations and complete electrical services.
-              </p>
             </motion.div>
           </div>
         </Container>
@@ -329,14 +328,14 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
             <motion.h2 
               className="text-4xl font-bold mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
               Experience the FEAL Difference
             </motion.h2>
@@ -346,7 +345,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
               Professional auto-electrical services built on family values and commercial expertise
             </motion.p>
@@ -357,7 +356,7 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 20px 40px rgba(0,0,0,0.3)"

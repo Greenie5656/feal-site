@@ -1,18 +1,18 @@
 export const features = [
   {
-    icon: '⚡',
+    icon: '🚛',
     title: 'Fleet & Specialist Vehicle Experts',
-    description: 'Electrical systems designed for reliability and performance. From telematics to lighting, we deliver fleet electrical installations that meet the demands of commercial operations.'
+    description: 'Electrical systems built for performance, safety, and compliance. From lighting to camera systems, FEAL delivers reliable fleet installations designed for the demands of commercial operations.'
   },
   {
     icon: '📡',
     title: 'Vehicle Tracking & Telematics',
-    description: 'Protect, monitor and manage your vehicles with precision. Professional vehicle tracking UK-wide installations with full documentation and support.'
+    description: 'Protect, monitor, and manage your vehicles with precision. FEAL installs advanced tracking and immobilisation systems with full UK coverage, documentation, and ongoing support.'
   },
   {
     icon: '🔧',
     title: 'Mobile Fitters & Servicing',
-    description: 'On-site installs and maintenance across the UK. Our mobile auto electrician Lancashire team brings workshop-quality service to your location.'
+    description: 'On-site installations and maintenance anywhere in the UK. Our mobile engineers deliver workshop-quality workmanship, keeping your vehicles powered, compliant, and ready for the road.'
   }
 ];
 
