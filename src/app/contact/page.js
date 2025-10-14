@@ -76,7 +76,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
             >
               <div className="bg-white p-8 rounded-lg shadow-lg">
                 <h2 className="text-3xl font-bold mb-6 text-text">Send Us a Message</h2>
@@ -166,7 +166,7 @@ export default function ContactPage() {
                       <option value="Camera & DVR Systems">Camera & DVR Systems</option>
                       <option value="Lighting Installations">Lighting Installations</option>
                       <option value="Solar & Power Systems">Solar & Power Systems</option>
-                      <option value="Motorhome Electrics">Motorhome Electrics</option>
+                      <option value="Off-Grid Electrics">Off-Grid Electrics</option>
                       <option value="Electrical Servicing">Electrical Servicing</option>
                       <option value="Other">Other</option>
                     </select>
@@ -246,7 +246,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
               className="space-y-6"
             >
               {/* Contact Details Card */}
@@ -265,12 +265,20 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-lg text-text mb-1">Phone</h4>
-                      <a 
-                        href="tel:07702071515" 
-                        className="text-muted hover:text-primary transition"
-                      >
-                        07702 071515
-                      </a>
+                      <div className="flex flex-col gap-1">
+                        <a 
+                          href="tel:07702071515" 
+                          className="text-muted hover:text-primary transition"
+                        >
+                          07702 071515
+                        </a>
+                        <a 
+                          href="tel:07850172376" 
+                          className="text-muted hover:text-primary transition"
+                        >
+                          07850 172376
+                        </a>
+                      </div>
                     </div>
                   </motion.div>
 
@@ -324,9 +332,8 @@ export default function ContactPage() {
                     <div>
                       <h4 className="font-semibold text-lg text-text mb-1">Opening Hours</h4>
                       <div className="text-muted space-y-1">
-                        <p>Monday - Friday: 8am - 5pm</p>
-                        <p>Saturday: By appointment</p>
-                        <p>Sunday: Closed</p>
+                        <p>Monday - Friday: 8:00am - 4:30pm</p>
+                        <p>Saturday & Sunday: By appointment only</p>
                       </div>
                     </div>
                   </motion.div>
@@ -339,7 +346,7 @@ export default function ContactPage() {
                 <ul className="space-y-3 opacity-90">
                   <li className="flex items-start gap-2">
                     <span className="text-accent text-xl">✓</span>
-                    <span>Free quotes for fleet and commercial work</span>
+                    <span>Free quotes</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent text-xl">✓</span>
@@ -356,13 +363,13 @@ export default function ContactPage() {
                 </ul>
               </div>
 
-              {/* Map Placeholder */}
+              {/* Map */}
               <motion.div
                 className="bg-gray-200 rounded-lg overflow-hidden shadow-lg h-64"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2355.8!2d-2.3227!3d53.7054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTPCsDQyJzE5LjQiTiAywrAxOScyMS43Ilc!5e0!3m2!1sen!2suk!4v1234567890"
@@ -415,21 +422,32 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
             <h2 className="text-4xl font-bold mb-4">Prefer to Call?</h2>
             <p className="text-xl mb-6 opacity-90">
               Speak directly with our team for immediate assistance
             </p>
-            <motion.a
-              href="tel:07702071515"
-              className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Phone className="w-5 h-5 inline mr-2" />
-              07702 071515
-            </motion.a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.a
+                href="tel:07702071515"
+                className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Phone className="w-5 h-5 inline mr-2" />
+                07702 071515
+              </motion.a>
+              <motion.a
+                href="tel:07850172376"
+                className="inline-block bg-accent text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-opacity-90 transition shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Phone className="w-5 h-5 inline mr-2" />
+                07850 172376
+              </motion.a>
+            </div>
           </motion.div>
         </Container>
       </section>
