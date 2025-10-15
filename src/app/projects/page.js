@@ -56,6 +56,32 @@ const fleetProjects = [
     title: 'High-Quality System Installation',
     description: 'High-quality electrical system installation by FEAL, featuring precision-mounted components, neatly routed cabling, and secure fuse protection. Designed for performance and safety, this setup reflects FEAL\'s meticulous attention to detail and engineering standards across every project.',
     category: 'Fleet'
+  },
+  {
+    id: 7,
+    image: '/images/projects/fleet_4.jpg',
+    title: 'Rear Corner Lighting & Sensor Installation',
+    description: 'Close-up of a rear corner installation featuring FEAL\'s integrated lighting and sensor fitting. The clean finish and precision mounting demonstrate FEAL\'s focus on detail, durability, and professional integration for fleet and specialist vehicle builds.',
+    category: 'Fleet'
+  },
+  {
+    id: 8,
+    images: [
+      '/images/projects/fleet_5_1.jpg',
+      '/images/projects/fleet_5_2.jpg',
+      '/images/projects/fleet_5_3.jpg',
+      '/images/projects/fleet_5_4.jpg'
+    ],
+    title: 'LED Work Light & Rear Lighting System',
+    description: 'Rear vehicle setup featuring three mounted LED work lights, integrated tail and marker lights, and number plate illumination. All wiring is professionally routed and sealed, providing a clean, durable, and reliable electrical installation designed for daily operational use.',
+    category: 'Fleet'
+  },
+  {
+    id: 9,
+    image: '/images/projects/fleet_6.jpg',
+    title: 'Interior LED Lighting Installation',
+    description: 'Interior electrical installation featuring bright LED ceiling lighting and door-activated switches for automatic illumination. Wiring is neatly routed and securely clipped along the upper panel, providing a clean, reliable, and professionally finished electrical setup within the insulated compartment.',
+    category: 'Fleet'
   }
 ];
 
@@ -306,6 +332,7 @@ export default function ProjectsPage() {
                     src={project.image}
                     alt={project.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
