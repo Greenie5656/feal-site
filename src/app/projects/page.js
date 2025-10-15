@@ -278,93 +278,8 @@ export default function ProjectsPage() {
         </Container>
       </section>
 
-      {/* FEAL Off-Grid Projects Gallery */}
+      {/* FEAL Fleet Projects Gallery - NOW FIRST */}
       <section className="py-20 bg-bg relative overflow-hidden">
-        {/* Subtle background decoration */}
-        <motion.div
-          className="absolute top-20 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3]
-          }}
-          transition={{ 
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-
-        <Container>
-          <motion.div
-            className="flex items-center gap-4 mb-12"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-              <Battery className="w-7 h-7 text-accent" />
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold text-text">FEAL Off-Grid Projects</h2>
-              <p className="text-muted">Campervan, motorhome and off-grid power installations</p>
-            </div>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
-            {offGridProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all cursor-pointer border-t-4 border-accent"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: index * 0.1
-                }}
-                whileHover={{ y: -8 }}
-                onClick={() => openLightbox(project)}
-              >
-                {/* Image */}
-                <div className="relative h-64 overflow-hidden bg-gray-100">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  {/* View Details Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="bg-accent text-white px-6 py-3 rounded-lg font-semibold">
-                      View Details
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                    {project.category}
-                  </span>
-                  <h3 className="font-bold text-xl mb-2 text-text group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted text-sm line-clamp-3">
-                    {project.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* FEAL Fleet Projects Gallery */}
-      <section className="py-20 bg-white relative overflow-hidden">
         {/* Subtle background decoration */}
         <motion.div
           className="absolute bottom-20 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
@@ -456,6 +371,91 @@ export default function ProjectsPage() {
                 </motion.div>
               );
             })}
+          </div>
+        </Container>
+      </section>
+
+      {/* FEAL Off-Grid Projects Gallery - NOW SECOND */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Subtle background decoration */}
+        <motion.div
+          className="absolute top-20 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ 
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        <Container>
+          <motion.div
+            className="flex items-center gap-4 mb-12"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+              <Battery className="w-7 h-7 text-accent" />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-text">FEAL Off-Grid Projects</h2>
+              <p className="text-muted">Campervan, motorhome and off-grid power installations</p>
+            </div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+            {offGridProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all cursor-pointer border-t-4 border-accent"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: index * 0.1
+                }}
+                whileHover={{ y: -8 }}
+                onClick={() => openLightbox(project)}
+              >
+                {/* Image */}
+                <div className="relative h-64 overflow-hidden bg-gray-100">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* View Details Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="bg-accent text-white px-6 py-3 rounded-lg font-semibold">
+                      View Details
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    {project.category}
+                  </span>
+                  <h3 className="font-bold text-xl mb-2 text-text group-hover:text-accent transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted text-sm line-clamp-3">
+                    {project.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </Container>
       </section>
