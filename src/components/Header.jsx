@@ -37,6 +37,7 @@ export default function Header() {
                 width={120} 
                 height={60}
                 className="object-contain"
+                style={{ height: 'auto' }}  
                 priority
               />
             </motion.div>
