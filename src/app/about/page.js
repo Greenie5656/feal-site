@@ -2,9 +2,7 @@
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import Container from '@/components/Container';
-import { Compass, Users, Award, MapPin } from 'lucide-react';
-
-
+import { Compass, Users, Award, MapPin, Target } from 'lucide-react';
 
 const values = [
   {
@@ -63,8 +61,68 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Our Background Section */}
+      {/* Mission Statement Section - NEW */}
       <section className="py-20 bg-bg relative overflow-hidden">
+        {/* Subtle background decoration */}
+        <motion.div
+          className="absolute top-0 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl"
+          animate={{ 
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ 
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        <Container>
+          <motion.div
+            className="max-w-5xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-center justify-center gap-3 mb-8">
+              <Target className="w-10 h-10 text-accent" />
+              <h2 className="text-3xl md:text-4xl font-bold text-text text-center">
+                Our Mission
+              </h2>
+            </div>
+
+            <div className="bg-white p-8 md:p-12 rounded-lg shadow-lg border-l-4 border-accent relative">
+              <motion.div
+                className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-full"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              />
+
+              <div className="relative z-10 space-y-6">
+                <p className="text-xl md:text-2xl text-text leading-relaxed font-semibold">
+                  FEAL Electrical Automotive Ltd exists to set the benchmark for quality and professionalism in auto-electrical installation and support.
+                </p>
+
+                <p className="text-lg text-muted leading-relaxed">
+                  Our mission is to deliver reliable, compliant, and fully documented electrical solutions for fleets, commercial vehicles, and specialist builds across the UK.
+                </p>
+
+                <div className="pt-4 border-t-2 border-accent/20">
+                  <p className="text-lg text-muted leading-relaxed">
+                    We believe success starts with people — our customers and our team. By investing in skill, pride, and purpose, we aim to build a business that transforms standards in our industry and creates lasting opportunities for everyone involved.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </Container>
+      </section>
+
+      {/* Our Background Section */}
+      <section className="py-20 bg-white relative overflow-hidden">
         {/* Subtle background decoration */}
         <motion.div
           className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
@@ -149,7 +207,7 @@ export default function AboutPage() {
       </section>
 
       {/* What FEAL Stands For Section */}
-      <section className="py-16 bg-white border-t-2 border-accent">
+      <section className="py-16 bg-bg border-t-2 border-accent">
         <Container>
           <motion.div
             className="text-center mb-12"
@@ -176,7 +234,7 @@ export default function AboutPage() {
             {values.map((value, index) => (
               <motion.div
                 key={index}
-                className="bg-bg p-6 rounded-lg border-2 border-primary hover:shadow-xl transition-all relative overflow-hidden group"
+                className="bg-white p-6 rounded-lg border-2 border-primary hover:shadow-xl transition-all relative overflow-hidden group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -233,11 +291,11 @@ export default function AboutPage() {
       </section>
 
       {/* Our Workshop Section */}
-      <section className="py-20 bg-bg">
+      <section className="py-20 bg-white">
         <Container>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
-              className="bg-white p-8 rounded-lg shadow-lg"
+              className="bg-bg p-8 rounded-lg shadow-lg border-t-4 border-primary"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
