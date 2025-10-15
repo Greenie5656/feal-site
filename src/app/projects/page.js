@@ -1,10 +1,104 @@
 "use client";
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Hero from '@/components/Hero';
 import Container from '@/components/Container';
-import { Truck, Battery, ArrowRight } from 'lucide-react';
+import { Truck, Battery, ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+
+// Project data organized by category
+const offGridProjects = [
+  {
+    id: 1,
+    image: '/images/projects/off_grid_1.jpg',
+    title: 'Modern Campervan Interior',
+    description: 'Modern, space-efficient campervan interior featuring a sleek built-in kitchen with twin gas hobs, LED lighting, and a pop-up flat-screen display. A clean and practical example of FEAL\'s electrical craftsmanship, combining functionality with a refined, contemporary design for off-grid living.',
+    category: 'Off-Grid'
+  },
+  {
+    id: 2,
+    image: '/images/projects/off_grid_2.jpg',
+    title: 'Victron Power System',
+    description: 'Professional Victron off-grid electrical installation featuring dual 12.8V 200Ah lithium batteries, smart chargers, and precision wiring for efficient power management. A clean, reliable setup engineered by FEAL to deliver dependable off-grid performance for campervans, motorhomes, and specialist vehicles.',
+    category: 'Off-Grid'
+  },
+  {
+    id: 3,
+    image: '/images/projects/off_grid_3.jpg',
+    title: 'Hager Consumer Unit Installation',
+    description: 'Precision-installed Hager consumer unit showcasing FEAL\'s commitment to safe, compliant electrical distribution. Each circuit is neatly wired and labelled, providing reliable protection and professional-grade power management for off-grid, fleet, and specialist vehicle systems.',
+    category: 'Off-Grid'
+  }
+];
+
+const fleetProjects = [
+  {
+    id: 4,
+    images: [
+      '/images/projects/fleet_1_1.jpg',
+      '/images/projects/fleet_1_2.jpg',
+      '/images/projects/fleet_1_3.jpg'
+    ],
+    title: 'Multi-Vehicle Fleet Installation',
+    description: 'Fleet vans lined up in FEAL\'s workshop, each prepared for electrical installation and system integration. The image reflects FEAL\'s capability to handle multiple vehicles simultaneously with precision, efficiency, and a focus on consistent, professional standards across every project.',
+    category: 'Fleet'
+  },
+  {
+    id: 5,
+    image: '/images/projects/fleet_2.jpg',
+    title: 'Precision Wiring & Fuse Assembly',
+    description: 'Detailed view of FEAL\'s precision wiring and fuse assembly, demonstrating clean routing, high-current protection, and professional-grade component integration. Built for reliability and safety, this installation reflects FEAL\'s commitment to quality workmanship and long-term system performance.',
+    category: 'Fleet'
+  },
+  {
+    id: 6,
+    image: '/images/projects/fleet_3.jpg',
+    title: 'High-Quality System Installation',
+    description: 'High-quality electrical system installation by FEAL, featuring precision-mounted components, neatly routed cabling, and secure fuse protection. Designed for performance and safety, this setup reflects FEAL\'s meticulous attention to detail and engineering standards across every project.',
+    category: 'Fleet'
+  }
+];
 
 export default function ProjectsPage() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const openLightbox = (project, imageIndex = 0) => {
+    setSelectedImage(project);
+    setCurrentImageIndex(imageIndex);
+    setLightboxOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setSelectedImage(null);
+    setCurrentImageIndex(0);
+    document.body.style.overflow = 'unset';
+  };
+
+  const nextImage = () => {
+    if (selectedImage?.images) {
+      setCurrentImageIndex((prev) => (prev + 1) % selectedImage.images.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedImage?.images) {
+      setCurrentImageIndex((prev) => (prev - 1 + selectedImage.images.length) % selectedImage.images.length);
+    }
+  };
+
+  const getCurrentImage = () => {
+    if (!selectedImage) return '';
+    return selectedImage.images ? selectedImage.images[currentImageIndex] : selectedImage.image;
+  };
+
+  const hasMultipleImages = () => {
+    return selectedImage?.images && selectedImage.images.length > 1;
+  };
+
   return (
     <>
       {/* Hero Section */}
@@ -35,7 +129,7 @@ export default function ProjectsPage() {
         </Container>
       </section>
 
-      {/* FEAL Fleet & FEAL Off-Grid Sections */}
+      {/* FEAL Fleet & FEAL Off-Grid Overview Sections */}
       <section className="py-20 bg-bg">
         <Container>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -138,8 +232,332 @@ export default function ProjectsPage() {
         </Container>
       </section>
 
+      {/* Project Gallery Divider */}
+      <section className="py-12 bg-white">
+        <Container>
+          <motion.div
+            className="text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-4xl font-bold mb-4 text-text">
+              Featured Projects
+            </h2>
+            <p className="text-lg text-muted">
+              Explore our recent installations showcasing FEAL's precision engineering and professional craftsmanship
+            </p>
+          </motion.div>
+        </Container>
+      </section>
+
+      {/* FEAL Off-Grid Projects Gallery */}
+      <section className="py-20 bg-bg relative overflow-hidden">
+        {/* Subtle background decoration */}
+        <motion.div
+          className="absolute top-20 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ 
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        <Container>
+          <motion.div
+            className="flex items-center gap-4 mb-12"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+              <Battery className="w-7 h-7 text-accent" />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-text">FEAL Off-Grid Projects</h2>
+              <p className="text-muted">Campervan, motorhome and off-grid power installations</p>
+            </div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+            {offGridProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all cursor-pointer border-t-4 border-accent"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: index * 0.1
+                }}
+                whileHover={{ y: -8 }}
+                onClick={() => openLightbox(project)}
+              >
+                {/* Image */}
+                <div className="relative h-64 overflow-hidden bg-gray-100">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* View Details Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="bg-accent text-white px-6 py-3 rounded-lg font-semibold">
+                      View Details
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    {project.category}
+                  </span>
+                  <h3 className="font-bold text-xl mb-2 text-text group-hover:text-accent transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted text-sm line-clamp-3">
+                    {project.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* FEAL Fleet Projects Gallery */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Subtle background decoration */}
+        <motion.div
+          className="absolute bottom-20 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+          animate={{ 
+            scale: [1.2, 1, 1.2],
+            opacity: [0.5, 0.3, 0.5]
+          }}
+          transition={{ 
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        <Container>
+          <motion.div
+            className="flex items-center gap-4 mb-12"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+              <Truck className="w-7 h-7 text-primary" />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-text">FEAL Fleet Projects</h2>
+              <p className="text-muted">Commercial vehicle electrical systems and installations</p>
+            </div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+            {fleetProjects.map((project, index) => {
+              const displayImage = project.images ? project.images[0] : project.image;
+              const hasMultiple = project.images && project.images.length > 1;
+
+              return (
+                <motion.div
+                  key={project.id}
+                  className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all cursor-pointer border-t-4 border-primary"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: index * 0.1
+                  }}
+                  whileHover={{ y: -8 }}
+                  onClick={() => openLightbox(project)}
+                >
+                  {/* Image */}
+                  <div className="relative h-64 overflow-hidden bg-gray-100">
+                    <Image
+                      src={displayImage}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Multiple Images Indicator */}
+                    {hasMultiple && (
+                      <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
+                        <span>{project.images.length} photos</span>
+                      </div>
+                    )}
+                    
+                    {/* View Details Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="bg-primary text-white px-6 py-3 rounded-lg font-semibold">
+                        {hasMultiple ? 'View Gallery' : 'View Details'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                      {project.category}
+                    </span>
+                    <h3 className="font-bold text-xl mb-2 text-text group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted text-sm line-clamp-3">
+                      {project.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxOpen && selectedImage && (
+          <motion.div
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeLightbox}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 text-white hover:text-accent transition p-2 bg-black/50 rounded-full z-10"
+              aria-label="Close lightbox"
+            >
+              <X className="w-8 h-8" />
+            </button>
+
+            {/* Previous Button */}
+            {hasMultipleImages() && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevImage();
+                }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-primary transition p-3 bg-black/50 rounded-full z-10"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="w-8 h-8" />
+              </button>
+            )}
+
+            {/* Next Button */}
+            {hasMultipleImages() && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextImage();
+                }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-primary transition p-3 bg-black/50 rounded-full z-10"
+                aria-label="Next image"
+              >
+                <ChevronRight className="w-8 h-8" />
+              </button>
+            )}
+
+            {/* Image Container */}
+            <motion.div
+              className="max-w-6xl w-full"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="bg-white rounded-lg overflow-hidden shadow-2xl">
+                {/* Image */}
+                <div className="relative h-[60vh] bg-gray-100">
+                  <Image
+                    src={getCurrentImage()}
+                    alt={selectedImage.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 90vw"
+                    className="object-contain"
+                    key={currentImageIndex}
+                  />
+                  
+                  {/* Image Counter */}
+                  {hasMultipleImages() && (
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                      {currentImageIndex + 1} / {selectedImage.images.length}
+                    </div>
+                  )}
+                </div>
+
+                {/* Thumbnail Navigation */}
+                {hasMultipleImages() && (
+                  <div className="flex gap-2 p-4 bg-gray-100 overflow-x-auto">
+                    {selectedImage.images.map((img, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentImageIndex(idx)}
+                        className={`relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden border-2 transition ${
+                          idx === currentImageIndex 
+                            ? 'border-primary shadow-lg' 
+                            : 'border-transparent hover:border-gray-300'
+                        }`}
+                      >
+                        <Image
+                          src={img}
+                          alt={`${selectedImage.title} ${idx + 1}`}
+                          fill
+                          sizes="80px"
+                          className="object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {/* Content */}
+                <div className="p-8">
+                  <span className={`inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4 ${
+                    selectedImage.category === 'Off-Grid' 
+                      ? 'bg-accent/10 text-accent' 
+                      : 'bg-primary/10 text-primary'
+                  }`}>
+                    {selectedImage.category}
+                  </span>
+                  <h3 className="font-bold text-3xl mb-4 text-text">
+                    {selectedImage.title}
+                  </h3>
+                  <p className="text-muted text-lg leading-relaxed">
+                    {selectedImage.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Additional Info Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-bg">
         <Container>
           <motion.div
             className="max-w-4xl mx-auto text-center"

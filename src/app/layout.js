@@ -22,6 +22,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata = {
+  metadataBase: new URL('http://www.fealelectricalautomotiveltd.co.uk'),
   // Home Page Meta (Default)
   title: "FEAL Electrical Automotive Ltd | Fleet, Off-Grid & Vehicle Tracking Specialists",
   description: "FEAL Electrical Automotive Ltd provides professional electrical, tracking, and off-grid solutions for fleets, commercial vehicles, and leisure builds across the UK.",
